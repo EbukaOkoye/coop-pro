@@ -3,8 +3,8 @@
 import Image from "next/image";
 import { Assets } from "../utils/remoteAssets";
 import { FcGoogle } from "react-icons/fc";
-import CustomInput from "@/common/component/customInput";
-import CustomButton from "@/common/component/customButton";
+import CustomInput from "@/components/customInput";
+import CustomButton from "@/components/CustomButton";
 import { useRouter } from "next/navigation";
 
 export default function Login() {
@@ -81,7 +81,10 @@ export default function Login() {
           </p>
           <p className="font-light text-[0.8125rem] leading-[1.1875rem] text-grey_8">
             No Account {' '} <br />
-            <span className="text-basic_blue">
+            <span
+              onClick={() => router.push('/sign-up')}
+              className="text-basic_blue cursor-pointer"
+            >
               Sign-up
             </span>
           </p>
@@ -132,9 +135,9 @@ export default function Login() {
               customClass="w-[28.1875rem] border border-grey_text focus:border focus:border-blue_text p-3 mt-4"
             />
           </div>
-          <p 
-          onClick={() => router.push('/email-input')}
-          className="font-normal text-[0.8125rem] leading-[1.1875rem] text-blue_text text-right mt-4 cursor-pointer">
+          <p
+            onClick={() => router.push('/email-input')}
+            className="font-normal text-[0.8125rem] leading-[1.1875rem] text-blue_text text-right mt-4 cursor-pointer">
             Forgot Password
           </p>
           <CustomButton

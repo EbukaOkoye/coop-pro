@@ -1,0 +1,11 @@
+.image_bg {
+    background-image: url('../../assets/couple_large.jpeg');
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.form-wrapper-width {
+    width: 31.75rem !important;
+    padding-right: 0.5rem;
+}

@@ -1,5 +1,5 @@
-import React, { FocusEventHandler, useState } from 'react'
-import { ICustomInput } from './interfcace'
+import React from 'react';
+import { ICustomInput } from './interface';
 
 function CustomInput({
     type,
@@ -35,8 +35,8 @@ function CustomInput({
                 <input
                     className={
                         `
-                        w-full focus:border focus:border-blue_text border border-grey_text rounded-[0.5625rem] p-2
-                        font-light text-[0.875rem] leading-[1.3125rem] text-grey_80 ${customClass}`
+                        w-full focus:border focus:border-none focus:outline-none border border-grey_text rounded-[0.5625rem] p-2
+                        font-light text-[0.875rem] leading-[1.3125rem] text-grey_80 ${isShowIcon ? 'pl-10' : ''} ${customClass}`
                     }
                     type={type}
                     placeholder={placeholder}

@@ -1,8 +1,11 @@
 "use client";
 
-import ForgotPassWordOTP from "@/common/component/forgotPassword-otp";
-import { montserrat } from "@/utils/helpers";
 import React, { useState } from "react";
+import ForgotPasswordNewPassword from "@/components/forgot-password-new-password";
+import ForgotPasswordPin from "@/components/forgot-password-pin";
+import ForgotPasswordQuestions from "@/components/forgot-password-security-question";
+import ForgotPassWordOTP from "@/components/forgotPassword-otp";
+import { montserrat } from "@/utils/helpers";
 
 function ForgotPasswordSecurity() {
     const [index, setIndex] = useState<number>(0);
@@ -20,13 +23,11 @@ function ForgotPasswordSecurity() {
             case 0:
                 return <ForgotPassWordOTP next={handleNext} />;
             case 1:
-                return '';
+                return <ForgotPasswordQuestions next={handleNext} />;
             case 2:
-                return '';
+                return <ForgotPasswordPin next={handleNext} />;
             case 3:
-                return '';
-            case 4:
-                return '';
+                return <ForgotPasswordNewPassword />;
             default:
                 return <ForgotPassWordOTP next={handleNext} />;
         }
@@ -34,10 +35,16 @@ function ForgotPasswordSecurity() {
 
     return (
         <div
-            className={`rounded-[0.625rem] bg-white p-5 shadow-md w-[32.3125rem] h-[25rem]`}
+            className={`
+            rounded-[0.625rem] bg-white p-5 shadow-md w-[32.3125rem] min-h-[25rem]`}
         >
             <div className="multi_form_wrapper mt-6">
                 <div className="form_line_progress h-[0.125rem] w-[28rem] bg-grey_c9 mx-auto relative flex">
+                    <div className={`
+                    ${index > 0 && index === 1 ? 'bg-blue_text w-[9rem]' : index > 1 && index === 2 ?
+                            'bg-blue_text w-[18rem]' : index > 2 && index === 3 ? 'bg-blue_text w-[26rem]' : 'bg-grey_c9 w-[28rem]'
+                        }
+                    `}></div>
                     <div
                         className={`
                     ${index === 0 ? "bg-grey_94" : "bg-blue_text"}
@@ -78,7 +85,7 @@ function ForgotPasswordSecurity() {
                     >
                         <p className="text-white">4</p>
                         <p
-                            className={`${montserrat.className} w-[4.6875rem] font-medium text-light_black text-[0.625rem] leading-3 absolute -top-[1rem]`}
+                            className={`${montserrat.className} w-[4.9rem] font-medium text-light_black text-[0.625rem] leading-3 absolute -top-[1rem]`}
                         >
                             New Password
                         </p>

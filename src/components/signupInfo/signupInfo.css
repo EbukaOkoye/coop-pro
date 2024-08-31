@@ -1,0 +1,29 @@
+.blue-text {
+    color: #109CF1;
+}
+
+.grid-display {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: baseline;
+    gap: 0.875rem;
+}
+
+.form-width {
+    width: 37.5rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.select-width {
+    width: 12.5rem;
+}
+
+.input-style {
+    padding-left: 2.5rem;
+    border-radius: 1rem;
+    padding-top: 11.5px;
+    padding-bottom: 11.5px;
+    width: 100%;
+    margin-top: 0.4375rem;
+}

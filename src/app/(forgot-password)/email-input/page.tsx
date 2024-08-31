@@ -2,9 +2,9 @@
 
 import React from 'react';
 import { montserrat } from '@/utils/helpers';
-import CustomInput from '@/common/component/customInput';
+import CustomInput from '@/components/customInput';
 import { FaCircleCheck } from "react-icons/fa6";
-import CustomButton from '@/common/component/customButton';
+import CustomButton from '@/components/CustomButton';
 import { useRouter } from 'next/navigation';
 
 function ForgotPasswordEmailInput() {

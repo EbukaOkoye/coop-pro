@@ -1,9 +1,24 @@
 import localFont from 'next/font/local';
-import { Montserrat } from 'next/font/google';
+import { Montserrat, Work_Sans } from 'next/font/google';
 
 export const montserrat = Montserrat({
-  subsets: ['latin'], 
-  weight: ['400', '700'], 
+    subsets: ['latin'],
+    weight: ['400', '700'],
+});
+
+export const workSans = localFont({
+    src: [
+        {
+            path: "../fonts/WorkSans-Regular.ttf",
+            weight: "500",
+            style: "normal",
+        },
+        {
+            path: "../fonts/WorkSans-Bold.ttf",
+            weight: "700",
+            style: "normal",
+        },
+    ]
 });
 
 export const poppins = localFont({

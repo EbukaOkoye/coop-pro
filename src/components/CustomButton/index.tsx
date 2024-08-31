@@ -1,6 +1,6 @@
 import React from 'react';
 import { ICustomButton } from './interface';
-import SpinnerLoader from '../loaderSpinner';
+import SpinnerLoader from '@/components/spinnerLoader';
 
 function CustomButton({
     type,

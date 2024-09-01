@@ -6,9 +6,16 @@ import { FcGoogle } from "react-icons/fc";
 import CustomInput from "@/components/customInput";
 import CustomButton from "@/components/CustomButton";
 import { useRouter } from "next/navigation";
+import { FormEvent, ReactEventHandler } from "react";
 
 export default function Login() {
   const router = useRouter();
+
+  const onSubmit = (e: { preventDefault: () => void; }) => {
+    e.preventDefault();
+    router.push('dashboard')
+
+  }
 
   return (
     <main className="min-h-screen relative">
@@ -116,7 +123,7 @@ export default function Login() {
             />
           </div>
         </div>
-        <form className="mt-6 p-3">
+        <form className="mt-6 p-3" onSubmit={onSubmit}>
           <div className="mt-4">
             <CustomInput
               type="text"
@@ -142,6 +149,7 @@ export default function Login() {
           </p>
           <CustomButton
             text='Sign in'
+            type="submit"
             className='text-white bg-basic_blue rounded-[0.625rem] w-full font-medium text-[1rem] leading-6 px-4 py-3 mt-6'
           />
         </form>

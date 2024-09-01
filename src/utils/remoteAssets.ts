@@ -13,6 +13,14 @@ import house from '@/assets/house_icon.svg';
 import bank from '@/assets/bank.svg';
 import briefcase from '@/assets/briefcase.svg';
 import user_lined from '@/assets/user_lined.svg';
+import dashboard from '@/assets/dashboard_icon.svg';
+import savings from '@/assets/savings.svg';
+import loan from '@/assets/transaction.svg';
+import withdrawal from '@/assets/withdrawal.svg';
+import transaction from '@/assets/transaction_sidebar.svg';
+import support from '@/assets/support.svg';
+import logout from '@/assets/logout.svg';
+import profile_img from '@/assets/avatar_profile.png';
 
 export const Assets = {
     logo: logo,
@@ -30,4 +38,12 @@ export const Assets = {
     bank: bank,
     briefcase: briefcase,
     user_lined: user_lined,
+    dahsboard_nav: dashboard,
+    savings: savings,
+    loan: loan,
+    transaction: transaction,
+    withdrawal: withdrawal,
+    supoort_live: support,
+    logout: logout,
+    profile_img: profile_img,
 }

@@ -45,3 +45,13 @@ export const poppins = localFont({
         },
     ],
 });
+
+export const lineChartData = {
+    labels: ['1 Dec', '1 Jan', '1 Feb', '1 March'],
+    datasets: [{
+        label: 'Installment Amounts',
+        data: [100000, 150000, 200000, 250000],
+        borderColor: '#109CF1',
+        fill: false,
+    }]
+}

@@ -71,13 +71,13 @@ function LeftSidebar() {
                     <AccordionBody className="py-1">
                         <List className='list-disc'>
                             <ListItem className='list-disc text-white font-semibold font-work_sans text-[1.0625rem] leading-[1.1875rem]'>
-                                <Link href='/dashboard'>Quick Loan</Link>
+                                <Link href='/loan'>Quick Loan</Link>
                             </ListItem>
                             <ListItem className='list-disc text-white font-semibold font-work_sans text-[1.0625rem] leading-[1.1875rem]'>
-                                <Link href='/dashboard'>Loan History</Link>
+                                <Link href='/loan-history'>Loan History</Link>
                             </ListItem>
                             <ListItem className='list-disc text-white font-semibold font-work_sans text-[1.0625rem] leading-[1.1875rem]'>
-                                <Link href='/dashboard'>Upload Payment</Link>
+                                <Link href='/upload-payment'>Upload Payment</Link>
                             </ListItem>
                         </List>
                     </AccordionBody>

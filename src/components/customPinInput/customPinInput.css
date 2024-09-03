@@ -1,0 +1,11 @@
+.pincode-input-container {
+    display: flex;
+    justify-content: flex-start;
+    gap: 2rem;
+}
+
+.pincode-input-text {
+    border-color: #000 !important;
+    width: 4.1875rem !important;
+    height: 3.0625rem !important;
+}

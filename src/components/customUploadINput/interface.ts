@@ -22,4 +22,5 @@ export interface ICustomUpload {
     name?: string;
     customClass?: string;
     required?: boolean;
+    divClass?: string;
 }

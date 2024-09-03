@@ -36,6 +36,11 @@ module.exports = withMT({
         grey_d9: '#D9D9D9',
         error_red: '#DE1306',
         success_green: '#38C779',
+        black_2d: '#2D2D2D',
+        black_24: '#242424',
+        grey_f5: '#F5F5F5',
+        success_20: '#38C77933',
+        error_20: '#F7D3D4',
       },
       fontFamily: {
         work_sans: ['sans_work', 'Work-sans'],

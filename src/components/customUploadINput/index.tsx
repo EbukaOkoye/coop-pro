@@ -1,5 +1,7 @@
-import React, { useState } from 'react'
-import { ICustomUpload } from './interface'
+'use client';
+
+import React, { useState } from 'react';
+import { ICustomUpload } from './interface';
 
 function CustomUploadINput(
     {
@@ -19,6 +21,7 @@ function CustomUploadINput(
         EndImageIcon,
         isInnerText,
         innerText,
+        divClass,
         ...props
     }: ICustomUpload) {
     const [fileName, setFileName] = useState<string>('');
@@ -40,7 +43,7 @@ function CustomUploadINput(
                 }
             </div>
             <div
-                className='bg-white border-2 border-dashed border-black p-4 flex flex-col gap-3 items-center'
+                className={`bg-white border-2 border-dashed border-black p-4 flex flex-col gap-3 items-center ${divClass}`}
             >
                 <label htmlFor="file" className='cursor-pointer'>{isShowIcon && ImageIcon}</label>
                 <label htmlFor="file" className='cursor-pointer'>{isInnerText && innerText}</label>

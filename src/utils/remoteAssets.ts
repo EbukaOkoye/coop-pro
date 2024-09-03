@@ -21,6 +21,7 @@ import transaction from '@/assets/transaction_sidebar.svg';
 import support from '@/assets/support.svg';
 import logout from '@/assets/logout.svg';
 import profile_img from '@/assets/avatar_profile.png';
+import msg_icon from '@/assets/chat_img.png';
 
 export const Assets = {
     logo: logo,
@@ -46,4 +47,5 @@ export const Assets = {
     supoort_live: support,
     logout: logout,
     profile_img: profile_img,
+    chat_img: msg_icon,
 }

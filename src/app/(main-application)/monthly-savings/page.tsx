@@ -27,7 +27,7 @@ function MonthlySavings() {
                             placeholder="Car Savings"
                             isShowIcon
                             customClass="md:w-[18.75rem] border-2 !border-grey_82"
-                            labelClass="!font-monty font-normal leading-4 !text-grey_82"
+                            labelClass="!font-monty font-normal leading-4 text-grey_82"
                             ImageIcon={<FaArrowRightArrowLeft size={18} style={iconStyle} />}
                         />
                     </div>

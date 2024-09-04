@@ -83,7 +83,7 @@ export default function Login() {
           <p className="font-normal text-[1.3125rem] leading-[1.9375rem] text-pitch_black">
             Welcome to {' '}
             <span className="text-basic_blue">
-              Coop-Link
+              301 HAG
             </span>
           </p>
           <p className="font-light text-[0.8125rem] leading-[1.1875rem] text-grey_8">

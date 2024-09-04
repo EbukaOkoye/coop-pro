@@ -55,3 +55,51 @@ export const lineChartData = {
         fill: false,
     }]
 }
+
+export const pieOptions = {
+    plugins: {
+        legend: {
+            position: 'right', // To align the legend to the right
+        },
+        tooltip: {
+            callbacks: {
+                label: function (context: any) {
+                    const label = context.label || '';
+                    const value = context.raw;
+                    const total = context.chart._metasets[0].total;
+                    const percentage = ((value / total) * 100).toFixed(2);
+                    return `${label}: ${value} (${percentage}%)`;
+                },
+            },
+        },
+    },
+};
+
+export const pieChartdata = {
+    labels: ['Sent', 'Opened', 'Spam', 'Deleted'],
+    datasets: [
+        {
+            label: 'Total Invoices Sent',
+            data: [150, 96, 56, 10],
+            backgroundColor: [
+                '#FF851B', // Color for Sent
+                '#7FDBFF', // Color for Opened
+                '#B10DC9', // Color for Spam
+                '#FFDC00', // Color for Deleted
+            ],
+            hoverOffset: 4,
+        },
+    ],
+}
+
+export const barChartData = {
+    labels: ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL'], // Months
+    datasets: [
+        {
+            label: 'Savings', // Label for the data
+            data: [10000, 20000, 35000, 50000, 45000, 30000, 15000], // The savings data
+            backgroundColor: ['#007bff', '#ffc107', '#17a2b8', '#007bff', '#ffc107', '#17a2b8', '#007bff'], // Colors for each bar
+            borderRadius: 5, // Rounded corners
+        },
+    ],
+};

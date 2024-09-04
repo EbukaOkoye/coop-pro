@@ -17,6 +17,7 @@ function CustomInput({
     required,
     isShowEndIcon,
     EndImageIcon,
+    labelClass,
     ...props
 }: ICustomInput) {
 
@@ -25,7 +26,7 @@ function CustomInput({
         <div className='w-full'>
             <div className='mb-3'>
                 {isShowLabel &&
-                    <label className='font-normal text-[1rem] leading-6 text-pitch_black'>
+                    <label className={`font-normal text-[1rem] leading-6 text-pitch_black ${labelClass}`}>
                         {labelText}
                     </label>
                 }

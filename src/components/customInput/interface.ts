@@ -21,4 +21,5 @@ export interface ICustomInput {
     name?: string;
     customClass?: string;
     required?: boolean;
+    labelClass?: string;
 }

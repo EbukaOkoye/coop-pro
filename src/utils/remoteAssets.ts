@@ -22,6 +22,10 @@ import support from '@/assets/support.svg';
 import logout from '@/assets/logout.svg';
 import profile_img from '@/assets/avatar_profile.png';
 import msg_icon from '@/assets/chat_img.png';
+import savings_box from '@/assets/savings_box.svg';
+import savings_send from '@/assets/savings_send.svg';
+import savings_eligible from '@/assets/savings_eligible.svg';
+import savings_ratio from '@/assets/savings_ratio.svg';
 
 export const Assets = {
     logo: logo,
@@ -48,4 +52,8 @@ export const Assets = {
     logout: logout,
     profile_img: profile_img,
     chat_img: msg_icon,
+    savings_box: savings_box,
+    savings_send: savings_send,
+    savings_ratio: savings_ratio,
+    savings_eligible: savings_eligible
 }

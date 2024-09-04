@@ -20,7 +20,7 @@ function LeftSidebar() {
             <Card className="h-screen bg-btn_blue fixed w-full max-w-[18.0625rem] pr-4 shadow-xl shadow-blue-gray-900/5 rounded-none">
                 <div className="mb-2 p-4 flex items-center justify-between">
                     <h2 className='font-medium text-[1.75rem] text-some_white leading-8'>
-                        Coop-link
+                        301 HAG
                     </h2>
                     <Image
                         src={Assets.logo}

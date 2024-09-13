@@ -15,7 +15,7 @@ interface FormStepProps {
 }
 
 const SignupNextOfKin = ({ next, onSaveData }: FormStepProps) => {
-    const [formData, setFormData] = useState<Partial<ISignUp>>({
+    const [formData, setFormData] = useState({
         nextOfKinFullName: '',
         nextOfKinAddres: '',
         nextOfKinPhoneNumber: '',
@@ -27,10 +27,11 @@ const SignupNextOfKin = ({ next, onSaveData }: FormStepProps) => {
     });
 
     const handleChange = (
-        event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+        event: React.ChangeEvent<HTMLInputElement>
     ) => {
         const { name, value } = event.target;
         console.log('vals', value)
+        console.log('name', name)
         setFormData({ ...formData, [name]: value });
     };
 

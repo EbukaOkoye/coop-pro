@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import ApiAuth from '@/api/ApiAuth';
 import { AuthState, ISignIn, IMember, ISignUp } from './interface';
+import { showErrorToast } from '@/utils/toast';
 
 export const loginMember = createAsyncThunk<IMember, ISignIn>(
     "member/login",
@@ -62,6 +63,7 @@ const authMember = createSlice({
                 state.user = null;
                 if (action.error.message === "Request failed with status code 401") {
                     state.error = "Access Denied!!! Invalid Credentials";
+                    showErrorToast('"Access Denied!!! Invalid login credentials"')
                 } else {
                     state.error = action.error.message!;
                 }

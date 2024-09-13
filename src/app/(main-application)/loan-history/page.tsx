@@ -29,7 +29,7 @@ function LoanHistory() {
             </div>
             <div className="mt-8">
                 <table className="w-full">
-                    <thead className="p-3 bg-grey_f5 ">
+                    <thead className="p-3 bg-grey_f5 mb-3">
                         <th className="my-auto p-2 text-center">
                             <CustomInput type="checkbox" isShowLabel={false} />
                         </th>

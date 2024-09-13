@@ -61,8 +61,8 @@ function WithdrawalForm({ next }: StepProps) {
                                 <Image src={Assets.user} width={16} height={16.94} alt="" />
                             }
                         >
-                            <Option>New Account</Option>
-                            <Option>Old Account</Option>
+                            <option>New Account</option>
+                            <option>Old Account</option>
                         </CustomSelect>
                     </div>
                     <div className="my-3">
@@ -89,8 +89,8 @@ function WithdrawalForm({ next }: StepProps) {
                                 <Image src={Assets.bank_grey} width={16.17} height={15.31} alt="" />
                             }
                         >
-                            <Option>UBA</Option>
-                            <Option>Fidelity</Option>
+                            <option>UBA</option>
+                            <option>Fidelity</option>
                         </CustomSelect>
                     </div>
                     <div className="my-3">
@@ -124,8 +124,8 @@ function WithdrawalForm({ next }: StepProps) {
                             labelClass="!font-monty !font-normal !text-sm !leading-5 !text-grey_82"
                             icon={<Image src={Assets.food} width={20} height={20} alt="" />}
                         >
-                            <Option>New Account</Option>
-                            <Option>Old Account</Option>
+                            <option>New Account</option>
+                            <option>Old Account</option>
                         </CustomSelect>
                     </div>
                     <div className="my-3">

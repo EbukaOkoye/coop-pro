@@ -1,8 +1,9 @@
-import React from "react";
+'use client';
+import React, { forwardRef, useState } from "react";
 import { ICustomSelect } from "./interface";
-import { Select } from "@material-tailwind/react";
 
-function CustomSelect({
+
+const CustomSelect = forwardRef<HTMLSelectElement, ICustomSelect>(({
     customStyle,
     isShowLabel,
     labelText,
@@ -14,29 +15,39 @@ function CustomSelect({
     customClass,
     isShowIcon,
     icon,
+    name,
+    labelClass,
+    onChange,
     ...props
-}: ICustomSelect) {
+}, ref) => {
+
     return (
         <div className="">
             {isShowLabel && (
-                <label className="block mb-4 font-work_sans font-medium text-[1.125rem] leading-[1.8125rem]">
+                <label className={`block mb-4 font-work_sans font-medium text-[1.125rem] leading-[1.8125rem] ${labelClass}`}>
                     {labelText}
                 </label>
             )}
             <div
-                className={`flex items-center gap-2 px-3 border bg-white rounded-2xl border-grey_text ${customClass}`}
+                className={`flex items-end gap-2 px-3 py-3 border bg-white rounded-2xl border-grey_text relative ${customClass}`}
             >
-                <span className="mt-3">{isShowIcon && icon}</span>
-                <Select
-                    variant="standard"
-                    className=" border-b-0 active:border-b-0 focus:border-b-0"
+                <span className="">{isShowIcon && icon}</span>
+                <select
+                    className={`w-full my-auto`}
                     placeholder={placeholder}
+                    style={{ ...customStyle }}
+                    multiple={multiple}
+                    onChange={onChange}
+                    name={name}
+                    {...props}
+
                 >
                     {children}
-                </Select>
+                </select>
+
             </div>
         </div>
     );
-}
+})
 
 export default CustomSelect;

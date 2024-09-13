@@ -12,12 +12,12 @@ export interface ICustomInput {
     isShowEndIcon?: boolean;
     ImageIcon?: ReactNode;
     EndImageIcon?: ReactNode;
-    value?: any;
+    value?: string;
     defaultValue?: any;
     onBlur?: any;
     onFocus?: any;
     disabled?: any;
-    onChange?: ChangeEventHandler<HTMLInputElement> | undefined;
+    onChange?: ChangeEventHandler<HTMLInputElement>;
     name?: string;
     customClass?: string;
     required?: boolean;

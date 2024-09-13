@@ -1,19 +1,41 @@
 'use client';
 
+import { FormEvent, ReactEventHandler, useState } from "react";
 import Image from "next/image";
 import { Assets } from "../utils/remoteAssets";
 import { FcGoogle } from "react-icons/fc";
 import CustomInput from "@/components/customInput";
 import CustomButton from "@/components/CustomButton";
 import { useRouter } from "next/navigation";
-import { FormEvent, ReactEventHandler } from "react";
+import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { ISignIn } from "@/redux/slices/interface";
+import { AppDispatch } from "@/redux/store";
+import { loginMember } from "@/redux/slices/authSlice";
+import SpinnerLoader from "@/components/spinnerLoader";
 
-export default function Login() {
+const Login = () => {
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  // Initialize useForm
+  const { register, handleSubmit, formState: { errors } } = useForm<ISignIn>();
   const router = useRouter();
+  const dispatch = useDispatch<AppDispatch>();
 
-  const onSubmit = (e: { preventDefault: () => void; }) => {
-    e.preventDefault();
-    router.push('dashboard')
+  // Form submit handler
+  const handleLogin = async (data: ISignIn) => {
+    setIsLoading(true);
+    await dispatch(loginMember(data)).then((res) => {
+      console.log('result', res.payload)
+      console.log('data', data)
+      router.push('dashboard');
+    })
+      .catch((_err) => {
+        console.log(_err)
+      })
+      .finally(() => {
+        setIsLoading(false);
+      })
 
   }
 
@@ -123,14 +145,22 @@ export default function Login() {
             />
           </div>
         </div>
-        <form className="mt-6 p-3" onSubmit={onSubmit}>
+        <form className="mt-6 p-3" onSubmit={handleSubmit(handleLogin)}>
           <div className="mt-4">
             <CustomInput
               type="text"
               isShowLabel
               labelText="Enter your username or email address"
               placeholder="Username or email address"
-              customClass="w-[28.1875rem] border border-grey_text focus:border focus:border-blue_text p-3 mt-4"
+              customClass="w-[28.1875rem] border border-grey_text !focus:border !focus:border-blue_text focus:outline-grey_text p-3 mt-4"
+              {...register('email', {
+                required: "Email is required",
+                pattern: {
+                  value: /^\S+@\S+$/i,
+                  message: 'Invalid email format'
+                }
+              })}
+              errors={errors.email && [errors.email.message!]}
             />
           </div>
           <div className="mt-4">
@@ -139,7 +169,15 @@ export default function Login() {
               isShowLabel
               labelText="Enter your Password"
               placeholder="Password"
-              customClass="w-[28.1875rem] border border-grey_text focus:border focus:border-blue_text p-3 mt-4"
+              customClass="w-[28.1875rem] border border-grey_text !focus:border !focus:border-blue_text focus:outline-grey_text p-3 mt-4"
+              {...register('password', {
+                required: "Password is required",
+                minLength: {
+                  value: 6,
+                  message: "Password must be at least 6 characters long"
+                }
+              })}
+              errors={errors.password && [errors.password.message!]}
             />
           </div>
           <p
@@ -149,6 +187,7 @@ export default function Login() {
           </p>
           <CustomButton
             text='Sign in'
+            isLoading={isLoading}
             type="submit"
             className='text-white bg-basic_blue rounded-[0.625rem] w-full font-medium text-[1rem] leading-6 px-4 py-3 mt-6'
           />
@@ -157,3 +196,5 @@ export default function Login() {
     </main>
   );
 }
+
+export default Login;

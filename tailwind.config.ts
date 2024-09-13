@@ -56,6 +56,7 @@ module.exports = withMT({
         light_8f: '#60708F',
         deep_purple: '#9B51E0',
         deep_orange: '#F79E1B',
+        red_emphasis: '#DB353A',
       },
       fontFamily: {
         work_sans: ['sans_work', 'Work-sans'],

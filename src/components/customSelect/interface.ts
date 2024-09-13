@@ -1,4 +1,4 @@
-import { ReactElement, ReactNode } from "react";
+import { ChangeEventHandler, ReactElement, ReactNode } from "react";
 
 export interface ICustomSelect {
     customStyle?: object;
@@ -13,4 +13,7 @@ export interface ICustomSelect {
     selectClass?: string;
     isShowIcon?: boolean;
     icon?: ReactNode;
+    labelClass?: string;
+    name?: string;
+    onChange?: ChangeEventHandler<HTMLSelectElement> | undefined;
 }

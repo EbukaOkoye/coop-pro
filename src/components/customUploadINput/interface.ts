@@ -1,6 +1,12 @@
 import React, { ChangeEventHandler, ReactElement, ReactNode } from "react";
 import { IconType } from "react-icons";
 
+export type FileUploadDetails = {
+    fileName: string;
+    fileExtension: string;
+    base64String: string;
+};
+
 export interface ICustomUpload {
     placeholder?: string;
     customStyle?: object;
@@ -23,4 +29,7 @@ export interface ICustomUpload {
     customClass?: string;
     required?: boolean;
     divClass?: string;
+    id: string;
+    htmlFor: string;
+    onFileUpload?: (fileDetails: FileUploadDetails) => void;
 }

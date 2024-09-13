@@ -70,4 +70,6 @@ const CustomInput = (forwardRef<HTMLInputElement, ICustomInput>(({
     )
 }))
 
+CustomInput.displayName = 'CustomInput'
+
 export default CustomInput;

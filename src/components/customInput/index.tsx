@@ -1,7 +1,7 @@
 import React from 'react';
 import { ICustomInput } from './interface';
 
-function CustomInput({
+const CustomInput = ({
     type,
     placeholder,
     isShowLabel,
@@ -18,9 +18,11 @@ function CustomInput({
     isShowEndIcon,
     EndImageIcon,
     labelClass,
+    onChange,
+    value,
+    name,
     ...props
-}: ICustomInput) {
-
+}: ICustomInput) => {
     return (
 
         <div className='w-full'>
@@ -45,9 +47,10 @@ function CustomInput({
                     onBlur={onBlur}
                     onFocus={onFocus}
                     disabled={disabled}
+                    value={value}
                     autoComplete="off"
                     aria-autocomplete="none"
-                    required={required}
+                    onChange={onChange}
                     {...props}
                 />
             </div>
@@ -56,6 +59,9 @@ function CustomInput({
                     {error}
                 </small>
             ))}
+
+
+
         </div>
     )
 }

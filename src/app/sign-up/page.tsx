@@ -1,19 +1,26 @@
 "use client";
 
-import ForgotPasswordQuestions from "@/components/forgot-password-security-question";
 import { montserrat } from "@/utils/helpers";
 import { Assets } from "@/utils/remoteAssets";
 import Image from "next/image";
 import React, { useState } from "react";
-
 import "./signup.css";
 import SignupInfo from "@/components/signupInfo";
 import SignupNextOfKin from "@/components/forgot-password-pin/signupNextOfkin";
 import SignupUploadDocument from "@/components/signupUploadDocument";
 import SignupSecurityQuestions from "@/components/signupSecurityQuestions";
+import { ISignUp } from "@/redux/slices/interface";
+import { signupMember } from "@/redux/slices/authSlice";
+import { AppDispatch } from "@/redux/store";
+import { useDispatch } from "react-redux";
+import { showErrorToast, showSuccessToast } from "@/utils/toast";
+import { useRouter } from "next/navigation";
 
-function SignUp() {
+const SignUp = () => {
     const [index, setIndex] = useState<number>(0);
+    const [signUpData, setSignUpData] = useState<ISignUp>({} as ISignUp);
+    const dispatch = useDispatch<AppDispatch>();
+    const router = useRouter();
 
     const handleNext = () => {
         setIndex(index + 1);
@@ -23,28 +30,52 @@ function SignUp() {
         setIndex(index - 1);
     };
 
+    const handleSignupData = (data: Partial<ISignUp>) => {
+        setSignUpData((prev) => ({ ...prev, ...data }));
+    };
+
+    const firstSubmit = async () => {
+        try {
+            // Submit data via API
+            await dispatch(signupMember(signUpData)).then((res) => {
+                showSuccessToast('signup successful! You will a recieve a mail after you are approved')
+                router.push('/')
+
+                console.log('result', res.payload)
+                console.log('all_forms', signUpData)
+            })
+        } catch (error) {
+            showErrorToast(`Error submitting form: ${error}`,);
+        }
+    };
+
     const PageDisplay = (handleNext: () => void, handlePrev: () => void) => {
         switch (index) {
             case 0:
-                return <SignupInfo next={handleNext} />;
+                return <SignupInfo next={handleNext} onSaveData={handleSignupData} />;
             case 1:
-                return <SignupNextOfKin next={handleNext} />;
+                return (
+                    <SignupNextOfKin next={handleNext} onSaveData={handleSignupData} />
+                );
             case 2:
-                return <SignupUploadDocument next={handleNext} />;
+                return (
+                    <SignupUploadDocument
+                        next={handleNext}
+                        onSaveData={handleSignupData}
+                        onSubmit={firstSubmit}
+                    />
+                );
             case 3:
                 return <SignupSecurityQuestions />;
             default:
-                return <SignupInfo next={handleNext} />;
+                return <SignupInfo next={handleNext} onSaveData={handleSignupData} />;
         }
     };
 
     return (
         <div className="min-h-screen image_bg pb-8">
             <div className="flex justify-end">
-                <div
-                    className={`w-[49.625rem] ${index > 0 && "form-wrapper-width"
-                        }`}
-                >
+                <div className={`w-[49.625rem] ${index > 0 && "form-wrapper-width"}`}>
                     <Image
                         src={Assets.logo}
                         width={129}
@@ -64,7 +95,9 @@ function SignUp() {
                 >
                     <div className="p-2">
                         <div className="multi_form_wrapper mt-6">
-                            <div className={`form_line_progress h-[0.125rem] w-[28rem] bg-grey_c9 mx-auto relative flex`}>
+                            <div
+                                className={`form_line_progress h-[0.125rem] w-[28rem] bg-grey_c9 mx-auto relative flex`}
+                            >
                                 <div
                                     className={`
                     ${index > 0 && index === 1
@@ -130,6 +163,6 @@ function SignUp() {
             </div>
         </div>
     );
-}
+};
 
 export default SignUp;

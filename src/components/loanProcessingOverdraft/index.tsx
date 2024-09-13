@@ -1,8 +1,19 @@
-import React from 'react'
+'use client';
+import React, { useEffect } from 'react';
 
-function LoanProcessingOverdraft() {
+interface FormStepProps {
+    next: () => void;
+}
+
+function LoanProcessingOverdraft({ next }: FormStepProps) {
+    useEffect(() => {
+        setTimeout(() => {
+            next();
+        }, 10000);
+    }, [])
+
     return (
-        <div className='h-[41.125rem] rounded-[0.625rem] bg-white p-3'>
+        <div className='h-[41.125rem] rounded-[0.625rem] bg-white p-3 transparent-logo'>
             <h4 className="font-work_sans font-medium text-base leading-6 text-black_2d mt-8">
                 Processing Loan
             </h4>

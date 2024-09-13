@@ -4,10 +4,10 @@ import { ICustomPinInput } from "./interface";
 import './customPinInput.css';
 
 
-const CustomPinInput = ({ onChange, onComplete }: ICustomPinInput) => {
+const CustomPinInput = ({ onChange, onComplete, customStyle, length = 6 }: ICustomPinInput) => {
     return (
         <PinInput
-            length={6}
+            length={length}
             initialValue=""
             secret
             secretDelay={100}
@@ -16,7 +16,9 @@ const CustomPinInput = ({ onChange, onComplete }: ICustomPinInput) => {
             inputMode="number"
             onComplete={onComplete}
             autoSelect={true}
+            style={customStyle}
             regexCriteria={/^[ A-Za-z0-9_@./#&+-]*$/}
+
         />
     );
 };

@@ -11,7 +11,7 @@
   font-family: 'Montserrat Regular';
   font-style: normal;
   font-weight: normal;
-  src: local('Montserrat Regular'), url('../fonts//Montserrat-Regular.woff') format('woff');
+  src: local('Montserrat Regular'), url('../fonts/Montserrat-Regular.ttf') format('woff');
 }
 
 :root {
@@ -36,4 +36,11 @@ body {
       text-wrap: balance;
     }
   }
+}
+
+.transparent-logo {
+  background-image: url('/src/assets/transparent_logo.png') !important;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }

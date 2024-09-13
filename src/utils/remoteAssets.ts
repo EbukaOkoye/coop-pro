@@ -26,6 +26,14 @@ import savings_box from '@/assets/savings_box.svg';
 import savings_send from '@/assets/savings_send.svg';
 import savings_eligible from '@/assets/savings_eligible.svg';
 import savings_ratio from '@/assets/savings_ratio.svg';
+import delete_blue from '@/assets/delete_blue.svg';
+import hash from '@/assets/hash.svg';
+import money from '@/assets/money.svg';
+import user from '@/assets/user_icon.svg';
+import food from '@/assets/food.png';
+import bank_grey from '@/assets/grey_bank.png';
+import circle_thing from '@/assets/circle_thing.svg';
+import transparent_logo from '@/assets/transparent_logo.png';
 
 export const Assets = {
     logo: logo,
@@ -55,5 +63,13 @@ export const Assets = {
     savings_box: savings_box,
     savings_send: savings_send,
     savings_ratio: savings_ratio,
-    savings_eligible: savings_eligible
+    savings_eligible: savings_eligible,
+    delete_blue: delete_blue,
+    hash: hash,
+    money: money,
+    user: user,
+    food: food,
+    bank_grey: bank_grey,
+    circle_thing: circle_thing,
+    transparent_logo: transparent_logo,
 }

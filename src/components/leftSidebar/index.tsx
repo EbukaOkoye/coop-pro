@@ -6,9 +6,16 @@ import { Accordion, AccordionBody, AccordionHeader, Card, List, ListItem, ListIt
 import { Assets } from '@/utils/remoteAssets';
 import { FaChevronDown, FaChevronRight } from 'react-icons/fa';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
-function LeftSidebar() {
+interface SidebarProps {
+    smallNav: boolean;
+}
+
+
+function LeftSidebar({ smallNav }: SidebarProps) {
     const [open, setOpen] = useState(0);
+    const router = useRouter();
 
     const handleOpen = (value: number) => {
         setOpen(open === value ? 0 : value);
@@ -17,9 +24,9 @@ function LeftSidebar() {
 
     return (
         <>
-            <Card className="h-screen bg-btn_blue fixed w-full max-w-[18.0625rem] pr-4 shadow-xl shadow-blue-gray-900/5 rounded-none">
-                <div className="mb-2 p-4 flex items-center justify-between">
-                    <h2 className='font-medium text-[1.75rem] text-some_white leading-8'>
+            <Card className={`h-screen bg-btn_blue fixed w-full max-w-[18.0625rem] pr-4 shadow-xl shadow-blue-gray-900/5 rounded-none ${smallNav && 'w-[7.5rem]'}`}>
+                <div className="mb-2 p-2 flex items-center justify-center gap-2">
+                    <h2 className={`font-medium text-[1.75rem] text-some_white leading-8 ${smallNav && 'hidden'}`}>
                         301 HAG
                     </h2>
                     <Image
@@ -30,8 +37,8 @@ function LeftSidebar() {
                     />
                 </div>
                 <List>
-                    <ListItem className='active:border-l-2 w-full p-4 my-2 hover:bg-btn_blue active:bg-btn_blue focus:bg-btn_blue'>
-                        <ListItemPrefix>
+                    <ListItem className={`active:border-l-2 w-full p-4 my-2 hover:bg-btn_blue active:bg-btn_blue focus:bg-btn_blue ${smallNav && 'w-fit'}`}>
+                        <ListItemPrefix onClick={() => router.push('/dashboard')}>
                             <Image
                                 src={Assets.dahsboard_nav}
                                 width={23}
@@ -39,7 +46,7 @@ function LeftSidebar() {
                                 alt=''
                             />
                         </ListItemPrefix>
-                        <Link href='/dashboard' className="mr-auto font-normal text-white">
+                        <Link href='/dashboard' className={`mr-auto font-normal text-white ${smallNav && 'hidden'}`}>
                             Dashboard
                         </Link>
                     </ListItem>
@@ -54,7 +61,7 @@ function LeftSidebar() {
                             />
                         }
                     >
-                        <ListItem className={`w-full p-0 hover:bg-btn_blue active:bg-btn_blue focus:bg-btn_blue ${open === 1 && 'bg-btn_blue border-l-2'}`} selected={open === 1}>
+                        <ListItem className={`w-full  ${smallNav && 'w-fit'} p-0 hover:bg-btn_blue active:bg-btn_blue focus:bg-btn_blue ${open === 1 && 'bg-btn_blue border-l-2'}`} selected={open === 1}>
                             <AccordionHeader onClick={() => handleOpen(1)} className="border-b-0 p-3">
                                 <ListItemPrefix>
                                     <Image
@@ -64,21 +71,21 @@ function LeftSidebar() {
                                         alt=''
                                     />
                                 </ListItemPrefix>
-                                <Link href='/loan' className="mr-auto font-normal text-white">
+                                <Link href='/loan' className={`mr-auto font-normal text-white ${smallNav && 'hidden'}`}>
                                     Loan
                                 </Link>
                             </AccordionHeader>
                         </ListItem>
                         <AccordionBody className="py-1">
                             <List className='list-disc'>
-                                <ListItem className='list-disc text-white font-semibold font-work_sans text-[1.0625rem] leading-[1.1875rem]'>
-                                    <Link href='/loan'>Quick Loan</Link>
+                                <ListItem className={`list-disc text-white font-semibold font-work_sans text-[1.0625rem] leading-[1.1875rem] ${smallNav && 'w-fit'}`}>
+                                    <Link href='/loan' className={`${smallNav && 'hidden'}`}>Quick Loan</Link>
                                 </ListItem>
-                                <ListItem className='list-disc text-white font-semibold font-work_sans text-[1.0625rem] leading-[1.1875rem]'>
-                                    <Link href='/loan-history'>Loan History</Link>
+                                <ListItem className={`list-disc text-white font-semibold font-work_sans text-[1.0625rem] leading-[1.1875rem] ${smallNav && 'w-fit'}`}>
+                                    <Link href='/loan-history' className={`${smallNav && 'hidden'}`}>Loan History</Link>
                                 </ListItem>
-                                <ListItem className='list-disc text-white font-semibold font-work_sans text-[1.0625rem] leading-[1.1875rem]'>
-                                    <Link href='/upload-payment'>Upload Payment</Link>
+                                <ListItem className={`list-disc text-white font-semibold font-work_sans text-[1.0625rem] leading-[1.1875rem] ${smallNav && 'w-fit'}`}>
+                                    <Link href='/upload-payment' className={`${smallNav && 'hidden'}`}>Upload Payment</Link>
                                 </ListItem>
                             </List>
                         </AccordionBody>
@@ -94,7 +101,7 @@ function LeftSidebar() {
                             />
                         }
                     >
-                        <ListItem className={`w-full p-0 hover:bg-btn_blue active:bg-btn_blue focus:bg-btn_blue ${open === 2 && 'bg-btn_blue border-l-2'}`} selected={open === 2}>
+                        <ListItem className={`w-full ${smallNav && 'w-fit'} p-0 hover:bg-btn_blue active:bg-btn_blue focus:bg-btn_blue ${open === 2 && 'bg-btn_blue border-l-2'}`} selected={open === 2}>
                             <AccordionHeader onClick={() => handleOpen(2)} className="border-b-0 p-3">
                                 <ListItemPrefix>
                                     <Image
@@ -104,23 +111,23 @@ function LeftSidebar() {
                                         alt=''
                                     />
                                 </ListItemPrefix>
-                                <Link href='/savings' className="mr-auto font-normal text-white">
+                                <Link href='/savings' className={`mr-auto font-normal text-white ${smallNav && 'hidden'}`}>
                                     Savings
                                 </Link>
                             </AccordionHeader>
                         </ListItem>
                         <AccordionBody className="py-1">
                             <List className='list-disc'>
-                                <ListItem className='list-disc text-white font-semibold font-work_sans text-[1.0625rem] leading-[1.1875rem]'>
-                                    <Link href='/personal-savings'>Personal Savings</Link>
+                                <ListItem className={`list-disc ${smallNav && 'w-fit'} text-white font-semibold font-work_sans text-[1.0625rem] leading-[1.1875rem]`}>
+                                    <Link href='/personal-savings' className={`${smallNav && 'hidden'}`}>Personal Savings</Link>
                                 </ListItem>
-                                <ListItem className='list-disc text-white font-semibold font-work_sans text-[1.0625rem] leading-[1.1875rem]'>
-                                    <Link href='/monthly-savings'>Monthly Savings</Link>
+                                <ListItem className={`list-disc ${smallNav && 'w-fit'} text-white font-semibold font-work_sans text-[1.0625rem] leading-[1.1875rem]`}>
+                                    <Link href='/monthly-savings' className={`${smallNav && 'hidden'}`}>Monthly Savings</Link>
                                 </ListItem>
                             </List>
                         </AccordionBody>
                     </Accordion>
-                    <ListItem className='active:border-l-2 w-full p-4 my-2 hover:bg-btn_blue active:bg-btn_blue focus:bg-btn_blue'>
+                    <ListItem className={`active:border-l-2 w-full ${smallNav && 'w-fit'} p-4 my-2 hover:bg-btn_blue active:bg-btn_blue focus:bg-btn_blue`}>
                         <ListItemPrefix>
                             <Image
                                 src={Assets.withdrawal}
@@ -129,11 +136,11 @@ function LeftSidebar() {
                                 alt=''
                             />
                         </ListItemPrefix>
-                        <Link href='/dashboard' className="mr-auto font-normal text-white">
+                        <Link href='/withdrawal' className={`mr-auto font-normal text-white ${smallNav && 'hidden'}`}>
                             Withdrawal
                         </Link>
                     </ListItem>
-                    <ListItem className='active:border-l-2 w-full p-4 my-2 hover:bg-btn_blue active:bg-btn_blue focus:bg-btn_blue'>
+                    <ListItem className={`active:border-l-2 w-full ${smallNav && 'w-fit'} p-4 my-2 hover:bg-btn_blue active:bg-btn_blue focus:bg-btn_blue`}>
                         <ListItemPrefix>
                             <Image
                                 src={Assets.transaction}
@@ -142,14 +149,14 @@ function LeftSidebar() {
                                 alt=''
                             />
                         </ListItemPrefix>
-                        <Link href='/dashboard' className="mr-auto font-normal text-white">
+                        <Link href='/transaction' className={`mr-auto font-normal text-white ${smallNav && 'hidden'}`}>
                             Transaction
                         </Link>
                     </ListItem>
                 </List>
                 <hr className="mt-8 w-3/4 mx-auto border-white" />
                 <List>
-                    <ListItem className='active:border-l-2 p-4 my-2 ml-6 hover:bg-btn_blue active:bg-btn_blue focus:bg-btn_blue'>
+                    <ListItem className={`active:border-l-2 w-full ml-6 ${smallNav && 'w-fit'} p-4 my-2 hover:bg-btn_blue active:bg-btn_blue focus:bg-btn_blue`}>
                         <ListItemPrefix>
                             <Image
                                 src={Assets.supoort_live}
@@ -158,11 +165,11 @@ function LeftSidebar() {
                                 alt=''
                             />
                         </ListItemPrefix>
-                        <Link href='/dashboard' className="mr-auto font-normal text-white text-[0.875rem] leading-4">
+                        <Link href='/dashboard' className={`mr-auto font-normal text-white text-[0.875rem] leading-4 ${smallNav && 'hidden'}`}>
                             Live Support
                         </Link>
                     </ListItem>
-                    <ListItem className='active:border-l-2 p-4 my-2 ml-6 hover:bg-btn_blue active:bg-btn_blue focus:bg-btn_blue'>
+                    <ListItem className={`active:border-l-2 p-4 my-2 ml-6 hover:bg-btn_blue active:bg-btn_blue focus:bg-btn_blue ${smallNav && 'w-fit'}`}>
                         <ListItemPrefix>
                             <Image
                                 src={Assets.logout}
@@ -171,7 +178,7 @@ function LeftSidebar() {
                                 alt=''
                             />
                         </ListItemPrefix>
-                        <p className="mr-auto font-normal text-white text-[0.875rem] leading-4">
+                        <p className={`mr-auto font-normal text-white text-[0.875rem] leading-4 ${smallNav && 'hidden'}`}>
                             Logout
                         </p>
                     </ListItem>

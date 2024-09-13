@@ -10,7 +10,7 @@ interface FormStepProps {
 
 function LoanLoanInfo({ next }: FormStepProps) {
     return (
-        <div className="p-3">
+        <div className="p-3 bg-white transparent-logo">
             <h4 className="font-work_sans font-medium text-base leading-6 text-black_2d mt-8">
                 Loan Information
             </h4>

@@ -57,10 +57,12 @@ module.exports = withMT({
         deep_purple: '#9B51E0',
         deep_orange: '#F79E1B',
         red_emphasis: '#DB353A',
+        faded_cyan: '#D3E8EB',
       },
       fontFamily: {
         work_sans: ['sans_work', 'Work-sans'],
         monty: ['monty', 'Montserrat'],
+        sans_sc: ['Sans'],
       },
     },
   },

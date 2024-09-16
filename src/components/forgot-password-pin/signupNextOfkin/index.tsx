@@ -26,12 +26,8 @@ const SignupNextOfKin = ({ next, onSaveData }: FormStepProps) => {
         nextOfKinStateOfOrigin: '',
     });
 
-    const handleChange = (
-        event: React.ChangeEvent<HTMLInputElement>
-    ) => {
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;
-        console.log('vals', value)
-        console.log('name', name)
         setFormData({ ...formData, [name]: value });
     };
 

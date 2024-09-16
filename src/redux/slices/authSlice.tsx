@@ -5,18 +5,25 @@ import { showErrorToast } from '@/utils/toast';
 
 export const loginMember = createAsyncThunk<IMember, ISignIn>(
     "member/login",
-    async (credentials) => {
-        const request = await ApiAuth.post("Account/MemberLogin", credentials);
-        const response = await request.data;
-        localStorage.setItem("user", JSON.stringify(response));
-        return response;
+    async (credentials, { rejectWithValue }) => {
+        try {
+            const request = await ApiAuth.post("/api/Account/MemberLogin", credentials);
+            const response = await request.data;
+            if (response.status !== 200) {
+                showErrorToast('Error Logging in!')
+            }
+            localStorage.setItem("user", JSON.stringify(response));
+            return response;
+        } catch (error: any) {
+            return rejectWithValue(error?.response?.data?.message || "Login failed")
+        }
     }
 );
 
 export const signupMember = createAsyncThunk<IMember, ISignUp>(
     'member/signup',
     async (credentials) => {
-        const request = await ApiAuth.post('Onboarding/SignUpMember', credentials);
+        const request = await ApiAuth.post('/api/Onboarding/SignUpMember', credentials);
         const response = await request.data;
         localStorage.setItem("user", JSON.stringify(response));
         return response;
@@ -33,7 +40,13 @@ const initialState: AuthState = {
 
 const authMember = createSlice({
     name: 'member',
-    initialState,
+    initialState: {
+        isLoading: false,
+        user: null,
+        error: null,
+        success: false,
+        isAuthenticated: false,
+    } as AuthState,
     reducers: {
         setUser: (state, action) => {
             state.user = action.payload;
@@ -65,7 +78,7 @@ const authMember = createSlice({
                     state.error = "Access Denied!!! Invalid Credentials";
                     showErrorToast('"Access Denied!!! Invalid login credentials"')
                 } else {
-                    state.error = action.error.message!;
+                    state.error = action.payload as string;
                 }
             })
             .addCase(signupMember.pending, (state) => {

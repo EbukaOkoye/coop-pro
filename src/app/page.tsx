@@ -13,7 +13,7 @@ import { ISignIn } from "@/redux/slices/interface";
 import { AppDispatch } from "@/redux/store";
 import { loginMember } from "@/redux/slices/authSlice";
 import SpinnerLoader from "@/components/spinnerLoader";
-import { showErrorToast } from "@/utils/toast";
+import { showErrorToast, showSuccessToast } from "@/utils/toast";
 
 const Login = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -30,21 +30,14 @@ const Login = () => {
   // Form submit handler
   const handleLogin = async (data: ISignIn,) => {
     setIsLoading(true);
-    try {
-      await dispatch(loginMember(data))
-        .then((res) => {
-          console.log("result", res.payload);
-          console.log("data", data);
-          router.push("dashboard");
-        })
-
-    } catch (error) {
-      console.log(error);
-      showErrorToast(error)
-    }
-    finally {
-      setIsLoading(false);
-    }
+    dispatch(loginMember(data)).unwrap().then(res => {
+      console.log(res)
+    })
+      .catch(err => {
+        console.log(err)
+        showErrorToast(err);
+      })
+      .finally(() => setIsLoading(false))
   };
 
   return (

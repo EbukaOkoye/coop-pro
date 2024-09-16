@@ -14,11 +14,8 @@
   src: local('Montserrat Regular'), url('../fonts/Montserrat-Regular.ttf') format('woff');
 }
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+
+
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -29,13 +26,21 @@
 }
 
 body {
-  background: #ffffff;
+  overscroll-behavior: none;
+  background-color: transparent !important;
 
   @layer utilities {
     .text-balance {
       text-wrap: balance;
     }
   }
+}
+
+.root_bg {
+  background-image: url('../assets/wall_textture\ copy.jpeg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .transparent-logo {

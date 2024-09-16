@@ -30,8 +30,14 @@ function SavingsBarChart() {
             },
         },
         plugins: {
+            tooltip: {
+                enabled: false, // Disable tooltips
+            },
             legend: {
                 display: false, // Hide the legend
+            },
+            datalabels: {
+                display: false, // Ensure no data labels are displayed on bars
             },
         },
     };

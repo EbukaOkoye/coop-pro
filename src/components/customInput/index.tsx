@@ -3,7 +3,7 @@ import { ICustomInput } from './interface';
 
 
 
-const CustomInput = (forwardRef<HTMLInputElement, ICustomInput>(({
+function CustomInput({
     type,
     placeholder,
     isShowLabel,
@@ -24,7 +24,7 @@ const CustomInput = (forwardRef<HTMLInputElement, ICustomInput>(({
     value,
     name,
     ...props
-}, ref) => {
+}: ICustomInput) {
 
     return (
 
@@ -51,7 +51,7 @@ const CustomInput = (forwardRef<HTMLInputElement, ICustomInput>(({
                     onFocus={onFocus}
                     disabled={disabled}
                     value={value}
-                    ref={ref}
+                    name={name}
                     autoComplete="off"
                     aria-autocomplete="none"
                     onChange={onChange}
@@ -68,8 +68,6 @@ const CustomInput = (forwardRef<HTMLInputElement, ICustomInput>(({
 
         </div>
     )
-}))
-
-CustomInput.displayName = 'CustomInput'
+}
 
 export default CustomInput;

@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler, ReactElement, ReactNode } from "react";
+import React, { ChangeEvent, ChangeEventHandler, ReactElement, ReactNode } from "react";
 import { IconType } from "react-icons";
 
 export interface ICustomInput {
@@ -17,7 +17,8 @@ export interface ICustomInput {
     onBlur?: any;
     onFocus?: any;
     disabled?: any;
-    onChange?: ChangeEventHandler<HTMLInputElement>;
+    // onChange?: ChangeEventHandler<HTMLInputElement>;
+    onChange?: (e: ChangeEvent<HTMLInputElement>) => void
     name?: string;
     customClass?: string;
     required?: boolean;

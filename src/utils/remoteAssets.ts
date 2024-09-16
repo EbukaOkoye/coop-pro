@@ -34,6 +34,8 @@ import food from '@/assets/food.png';
 import bank_grey from '@/assets/grey_bank.png';
 import circle_thing from '@/assets/circle_thing.svg';
 import transparent_logo from '@/assets/transparent_logo.png';
+import user_image from '@/assets/user_image.png';
+import new_logo from '@/assets/new_logo.png';
 
 export const Assets = {
     logo: logo,
@@ -72,4 +74,6 @@ export const Assets = {
     bank_grey: bank_grey,
     circle_thing: circle_thing,
     transparent_logo: transparent_logo,
+    user_image: user_image,
+    new_logo: new_logo,
 }

@@ -38,6 +38,7 @@ const CustomSelect = forwardRef<HTMLSelectElement, ICustomSelect>(({
                     style={{ ...customStyle }}
                     multiple={multiple}
                     onChange={onChange}
+                    ref={ref}
                     name={name}
                     {...props}
 
@@ -48,6 +49,8 @@ const CustomSelect = forwardRef<HTMLSelectElement, ICustomSelect>(({
             </div>
         </div>
     );
-})
+});
+
+CustomSelect.displayName = 'CustomSelect';
 
 export default CustomSelect;

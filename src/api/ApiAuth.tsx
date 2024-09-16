@@ -34,7 +34,7 @@ ApiAuth.interceptors.response.use(
             // Token expired or unauthorized
             // Log out the user and redirect to login
             localStorage.removeItem("member");
-            window.location.replace('/')
+            location.href = '/'
         }
         return Promise.reject(error);
     }

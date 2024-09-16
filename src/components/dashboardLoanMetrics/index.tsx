@@ -4,7 +4,7 @@ import { TbCurrencyNaira } from "react-icons/tb";
 
 function DashboardLoanInfo() {
     return (
-        <div className="rounded-[0.625rem] shadow-sm bg-white w-full mt-3 grid grid-cols-4 gap-3 h-[11.375rem]">
+        <div className="rounded-[0.625rem] shadow-sm bg-faded_cyan w-full mt-3 grid grid-cols-4 gap-3 h-[11.375rem]">
             {loanInfo.map((info: DummyInfo, index) => (
                 <div className="flex items-center justify-between" key={index}>
                     <div

@@ -18,7 +18,7 @@ function Dashboard() {
     const percentage = 75;
 
     return (
-        <div>
+        <div className={`wall_image`}>
             <DashboardLoanInfo />
             <div className="grid mt-6 grid-cols-3 gap-7 shadow-sm">
                 <div className="col-span-1 rounded-[0.625rem] bg-white p-3 h-[19.0625rem]">
@@ -93,7 +93,7 @@ function Dashboard() {
                                                     {item.amount}
                                                 </td>
                                             </tr>
-                                            <tr className="h-2"></tr>
+                                            <tr className="h-4"></tr>
                                         </>
                                     ))}
                                 </tbody>

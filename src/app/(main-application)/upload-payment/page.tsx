@@ -16,6 +16,8 @@ function LoanUploadPayment() {
                         isInnerText
                         innerText='Upload valid ID'
                         divClass='bg-grey_6'
+                        htmlFor='picture'
+                        id='picture'
                     />
                 </div>
 

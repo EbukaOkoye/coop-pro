@@ -6,3 +6,10 @@
 table tr {
     margin-bottom: 10px !important;
 }
+
+.wall_image {
+    background-image: url('../../../assets/wall_textture\ copy.jpeg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}

@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { ICustomInput } from './interface';
 
-const CustomInput = ({
+
+
+function CustomInput({
     type,
     placeholder,
     isShowLabel,
@@ -22,7 +24,8 @@ const CustomInput = ({
     value,
     name,
     ...props
-}: ICustomInput) => {
+}: ICustomInput) {
+
     return (
 
         <div className='w-full'>
@@ -48,6 +51,7 @@ const CustomInput = ({
                     onFocus={onFocus}
                     disabled={disabled}
                     value={value}
+                    name={name}
                     autoComplete="off"
                     aria-autocomplete="none"
                     onChange={onChange}

@@ -17,6 +17,7 @@ function LeftSidebar({ smallNav }: SidebarProps) {
     const [open, setOpen] = useState(0);
     const router = useRouter();
 
+
     const handleOpen = (value: number) => {
         setOpen(open === value ? 0 : value);
     };
@@ -24,17 +25,13 @@ function LeftSidebar({ smallNav }: SidebarProps) {
 
     return (
         <>
-            <Card className={`h-screen bg-btn_blue fixed w-full max-w-[18.0625rem] pr-4 shadow-xl shadow-blue-gray-900/5 rounded-none ${smallNav && 'w-[7.5rem]'}`}>
-                <div className="mb-2 p-2 flex items-center justify-center gap-2">
-                    <h2 className={`font-medium text-[1.75rem] text-some_white leading-8 ${smallNav && 'hidden'}`}>
-                        301 HAG
-                    </h2>
-                    <Image
-                        src={Assets.logo}
-                        width={88}
-                        height={72}
-                        alt=''
-                    />
+            <Card className={`h-screen !rounded-tr-[1.875rem] !rounded-br-[2.0625rem] bg-gradient-to-b from-[#0692DE] to-[#666679] fixed w-full max-w-[18.0625rem] pr-4 shadow-xl shadow-blue-gray-900/5 rounded-none ${smallNav && 'w-[7.5rem]'}`}>
+                <div className="mb-2 p-2 flex items-center justify-center gap-5 mt-4">
+                    <div className={``}>
+                        <h2 className={`font-medium text-[1.25rem] leading-6 text-white`}>JOHN IKPE</h2>
+                        <h3 className={`font-medium text-[1.25rem] leading-6 text-white`}>Member</h3>
+                    </div>
+                    <Image src={Assets.user_image} width={52} height={58} className='rounded-[1.25rem]' alt='' />
                 </div>
                 <List>
                     <ListItem className={`active:border-l-2 w-full p-4 my-2 hover:bg-btn_blue active:bg-btn_blue focus:bg-btn_blue ${smallNav && 'w-fit'}`}>

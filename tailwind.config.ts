@@ -6,6 +6,7 @@ module.exports = withMT({
     "./src/pages/**/*.{js,ts,jsx,tsx}",
     "./src/app/**/*.{js,ts,jsx,tsx}",
     "./src/components/**/*.{js,ts,jsx,tsx}",
+    './public/**/*.html',
   ],
   theme: {
     extend: {
@@ -66,7 +67,11 @@ module.exports = withMT({
       },
     },
   },
-  plugins: [],
+  plugins: [
+    'postcss-import',
+    'tailwindcss',
+    'autoprefixer',
+  ],
 });
 
 
